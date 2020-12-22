@@ -15,8 +15,10 @@ def bool(obj, obj_c, type):
 clear_all()
 
 sm = 256
+# H = r[0] * sc [2]
 r = [2.0, 0.2]
 sc = [1.8, 1.5, 2, 1.4, 1]
+# h is the hight below the conpy
 h = 0.5
 z = 0.5 * sc[3] * r[0] + h
 
@@ -84,4 +86,4 @@ bpy.ops.export_mesh.stl(filepath='./constant/triSurface/Tree.stl',
 #clear_all()
 #bpy.ops.import_mesh.stl(filepath='Tree.stl')
 
-print('Geometry Generation Finshed!')
+print('Tree Geometry Generation Finshed!')

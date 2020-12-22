@@ -2,6 +2,7 @@
 
 # Libraries
 
+
 # Function definitions
 def headerLines(cl, loc, obj, con="convertToMeters 1;"):
     h = [
@@ -25,8 +26,8 @@ def headerLines(cl, loc, obj, con="convertToMeters 1;"):
     h[17] = h[17].format(con)
     return h
 
+
 bl = '    '
 loc = "system"
 cl = "dictionary"
 obj = "snappyHexMeshDict"
-

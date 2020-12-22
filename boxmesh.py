@@ -2,7 +2,11 @@
 
 # Libraries
 
-# Function definitions
+# -------------------------------------- #
+#         Function definitions           #
+# -------------------------------------- #
+
+
 def headerLines(cl, loc, obj, con="convertToMeters 1;"):
     h = [
         "/*--------------------------------*- C++ -*----------------------------------*|",
@@ -25,9 +29,17 @@ def headerLines(cl, loc, obj, con="convertToMeters 1;"):
     h[17] = h[17].format(con)
     return h
 
-# Define 
+
+# -------------------------------------- #
+#           Define  poperties            #
+# -------------------------------------- #
+
+# Tree hight
 H = 4
+# basic mesh size
 deltax = 0.2
+# [-xscale, xscale, -yscale, ysacle, -zscale, zscale]
+# [-x>=2, x>=2, -y>=4, y [8~25], -z=0, z>= 2.5]
 ls = [-1.5, 1.5, -2.5, 6, 0, 2.5]
 
 bl = '    '
@@ -42,8 +54,7 @@ ll = []
 for i in ls:
     ll.append(H * i)
 
-
-f = open(loc+'/'+obj, "w")
+f = open(loc + '/' + obj, "w")
 
 header = headerLines(cl, loc, obj)
 for l in range(len(header)):
