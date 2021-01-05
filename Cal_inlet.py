@@ -1,4 +1,12 @@
 import math
+from datetime import datetime
+
+
+print(
+      '\n* * * * * * Welcome to use Fluid Characteristics Calculator * * * * * *\n',
+      14*'* ','Author: Veenxz  ',14*'* ','\n',
+      13*'* ',datetime.now().strftime('%Y-%m-%d %H:%M:%S '),13*'* ','\n',
+      sep='')
 
 # user define 1
 z_f = 0.01
@@ -29,6 +37,7 @@ tdr = pow(tke, 3 / 2) / length_scale
 mut = cmu * pow(3 / 2, 1 / 2) * u * intensity * length_scale
 tvr = mut / mu
 tdrr = rho * tke / (mu * tvr)
+lmin = pow(pow(mu/rho,3)/tdr,1/4)
 
 print(
     "Re =",
@@ -55,6 +64,9 @@ print(
     "\ntdrr =",
     "%.6f" % tdrr,
     '[1/s]',
+    "\nlmin =",
+    "%.6f" % lmin,
+    '[m]',
 )
 
 # deltas calculator
