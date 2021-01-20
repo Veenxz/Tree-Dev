@@ -10,7 +10,7 @@ def headerLines(cl, loc, obj, con="convertToMeters 1;"):
         "| =========                 |                                                 |",
         "| \\\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |",
         "|  \\\    /   O peration     | Website:  https://openfoam.org                  |",
-        "|   \\\  /    A nd           | Version:  7                                     |",
+        "|   \\\  /    A nd           | Version:  8                                     |",
         "|    \\\/     M anipulation  |                                                 |",
         "\*---------------------------------------------------------------------------*/",
         "FoamFile", "{", "    version     2.0;", "    format      ascii;",

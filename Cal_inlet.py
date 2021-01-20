@@ -1,19 +1,31 @@
 import math
 from datetime import datetime
 
-
+# Print Head
 print(
-      '\n* * * * * * Welcome to use Fluid Characteristics Calculator * * * * * *\n',
-      14*'* ','Author: Veenxz  ',14*'* ','\n',
-      13*'* ',datetime.now().strftime('%Y-%m-%d %H:%M:%S '),13*'* ','\n',
+      '\n',
+      '* * * * * Welcome to use Fluid Characteristics Calculator * * * * *\n',
+      '*                   Beijing Forestry University                   *\n',
+      '*                          Author: Veenxz                         *\n',
+      12*'* ', datetime.now().strftime('%Y-%m-%d %H:%M:%S '), 12*'* ', '\n',
       sep='')
 
 # user define 1
 z_f = 0.01
-h = 4
-u_h = 5
+h = 4.0
+u_h = 10.0
 yplus = 5.0
 basex = 1.0
+
+print(
+      34*'- ', '\n',
+      '-  ', 'User defined friction hight is ', z_f, ' [m]\n',
+      '-  ', 'User defined reference hight is ', h, ' [m]\n',
+      '-  ', 'User defined reference velocity is ', u_h, ' [m/s]\n',
+      '-  ', 'User defined base Y+ is ', yplus, ' [ ]\n',
+      '-  ', 'User defined base mesh size is ', basex, ' [m]\n',
+      34*'- ', '\n',
+      sep='')
 
 # define constant
 cmu = 0.09
@@ -23,10 +35,27 @@ kappa = 0.41
 l = h
 u = u_h
 
+print(
+      34*'* ', '\n',
+      '*  ', 'User defined Cmu is ', cmu, ' [ ]\n',
+      '*  ', 'User defined reference hight is ', mu, ' [m]\n',
+      '*  ', 'User defined density is ', rho, ' [m/s]\n',
+      '*  ', 'User defined kappa is ', kappa, ' []\n',
+      '*  ', 'User defined reference length is ', l, ' [m]\n',
+      '*  ', 'User defined reference velocity is ', u_h, ' [m/s]\n',
+      34*'* ', '\n',
+      sep='')
+
+print(
+      '\n',
+      '- - - - - - - - - - - - - - - Results - - - - - - - - - - - - - - -\n',
+      sep='')
+
+# Inlet Profile
 u_f = u_h * kappa / (math.log(h / z_f + 1))
 
-print('u = ' + str("%.6f" % (u_f / kappa)) + '*log(z/' + str(z_f) + '+1)',
-      '[m/s]')
+print('Inlet Profile is','u = ' + str("%.6f" % (u_f / kappa)) + '*log(z/' + str(z_f) + '+1)',
+      '[m/s]\n')
 
 # turbulence characteristics calculator
 re = rho * u * l / mu
@@ -38,6 +67,7 @@ mut = cmu * pow(3 / 2, 1 / 2) * u * intensity * length_scale
 tvr = mut / mu
 tdrr = rho * tke / (mu * tvr)
 lmin = pow(pow(mu/rho,3)/tdr,1/4)
+tmin = lmin/u_h
 
 print(
     "Re =",
@@ -46,19 +76,19 @@ print(
     "\nI =",
     "%.6f" % (intensity * 100),
     '%',
-    "\nlength_scale =",
+    "\nLength_scale =",
     "%.6f" % length_scale,
     '[m]',
-    "\ntke =",
+    "\nTKE =",
     "%.6f" % tke,
     '[m2/s2]',
-    "\ntdr =",
+    "\nTDR =",
     "%.6f" % tdr,
     '[m2/s3]',
     "\nmut =",
     "%.6f" % mut,
     '[]',
-    "\ntvr =",
+    "\nTVR =",
     "%.6f" % tvr,
     '[]',
     "\ntdrr =",
@@ -67,6 +97,9 @@ print(
     "\nlmin =",
     "%.6f" % lmin,
     '[m]',
+    "\ntmin =",
+    "%.6f" % tmin,
+    '[s]\n',
 )
 
 # deltas calculator
