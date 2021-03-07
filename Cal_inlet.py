@@ -12,10 +12,10 @@ print(
 
 # user define 1
 z_f = 0.01
-h = 4.0
+h = 2.0
 u_h = 10.0
-yplus = 5.0
-basex = 1.0
+yplus = 1.0
+basex = 0.5
 
 print(
       34*'- ', '\n',
