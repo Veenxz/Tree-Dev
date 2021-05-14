@@ -38,7 +38,7 @@ u = u_h
 print(
       34*'* ', '\n',
       '*  ', 'User defined Cmu is ', cmu, ' [ ]\n',
-      '*  ', 'User defined reference hight is ', mu, ' [m]\n',
+      '*  ', 'User defined mu is ', mu, ' [m]\n',
       '*  ', 'User defined density is ', rho, ' [m/s]\n',
       '*  ', 'User defined kappa is ', kappa, ' []\n',
       '*  ', 'User defined reference length is ', l, ' [m]\n',
@@ -53,9 +53,10 @@ print(
 
 # Inlet Profile
 u_f = u_h * kappa / (math.log(h / z_f + 1))
-
+print('Friction velocity is ', "%.6f" % u_f, ' [m/s]\n')
 print('Inlet Profile is','u = ' + str("%.6f" % (u_f / kappa)) + '*log(z/' + str(z_f) + '+1)',
       '[m/s]\n')
+
 
 # turbulence characteristics calculator
 re = rho * u * l / mu
